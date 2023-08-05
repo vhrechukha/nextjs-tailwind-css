@@ -3,6 +3,7 @@ import * as Form from "@radix-ui/react-form";
 
 interface Props extends PropsWithChildren {
   name: string;
+  error?: string;
   label?: string;
   value?: string;
   required?: boolean;
@@ -10,6 +11,7 @@ interface Props extends PropsWithChildren {
 
 const Input: FunctionComponent<Props> = ({
   name,
+  error,
   label,
   value = "",
   required,
@@ -23,11 +25,11 @@ const Input: FunctionComponent<Props> = ({
             {label} {required && <span className="pl-1 text-red-600">*</span>}
           </Form.Label>
         )}
-        {/*{errors[name] && (*/}
-        {/*  <Form.Message className="text-[13px] text-red-600 opacity-[0.8]">*/}
-        {/*    Field is required*/}
-        {/*  </Form.Message>*/}
-        {/*)}*/}
+        {error && (
+          <Form.Message className="text-[13px] text-red-600 opacity-[0.8]">
+            {error}
+          </Form.Message>
+        )}
       </div>
       <Form.Control asChild>
         <input
