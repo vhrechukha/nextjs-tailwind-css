@@ -5,5 +5,6 @@
 import Card from "./Card";
 import Input from "./Input";
 import Stack from "./Stack";
+import Switch from "./Switch";
 
-export { Card, Input, Stack };
+export { Card, Input, Stack, Switch };

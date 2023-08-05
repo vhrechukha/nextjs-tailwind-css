@@ -1,45 +1,84 @@
 "use client";
 
 import * as Form from "@radix-ui/react-form";
-import { Card, Stack } from "@/components";
-import Input from "../../../components/Input";
+import { Card, Stack, Switch } from "@/components";
+import { useMemo } from "react";
+import { employeeValidationSchema } from "@/app/form/utils/employeeValidationSchema";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import RHFInput from "../../../components/Input/RHFInput";
 
 const EmployeeForm = () => {
+  const employeeSchema = useMemo(() => employeeValidationSchema(), []);
+
+  const { handleSubmit, control } = useForm({
+    mode: "onChange",
+    resolver: yupResolver(employeeSchema),
+  });
+
+  const onSubmit: SubmitHandler<any> = (data) => {
+    console.log(data);
+  };
+
   return (
-    <Form.Root>
+    <Form.Root onSubmit={handleSubmit(onSubmit)}>
       <Card title="Company Data">
-        <Input
-          // error="ddddfndsjfndskjfnjkdsnf kdjs fgn;kdsjngkjsdfngjkdsfngkdsfng;dskng;dfsgnsl"
-          name="contractStart"
+        <RHFInput
+          name="contractStartDay"
           label="Contract start"
-          required
+          control={control}
         />
-        <Input name="firstDayOfWork" label="First day of work" required />
+        <Switch name="same" />
+        <RHFInput
+          name="firstDayOfWork"
+          label="First day of work"
+          control={control}
+        />
       </Card>
       <Card title="Employee Data">
         <Stack direction="row" gap="1rem">
-          <Input name="firstName" label="First name" required />
-          <Input name="lastName" label="Last name" required />
+          <RHFInput name="firstName" label="First name" control={control} />
+          <RHFInput name="lastName" label="Last name" control={control} />
         </Stack>
-        <Input name="givenBirthName" label="Given birth name" required />
-        <Input name="socialId" label="Social ID" required />
+        <RHFInput
+          name="givenBirthName"
+          label="Given birth name"
+          control={control}
+        />
+        <RHFInput name="socialId" label="Social ID" control={control} />
         <Stack direction="row" gap="1rem">
-          <Input name="cityOfBirth" label="City of birth" required />
-          <Input name="countryOfBirth" label="Country of birth" required />
+          <RHFInput
+            name="cityOfBirth"
+            label="City of birth"
+            control={control}
+          />
+          <RHFInput
+            name="countryOfBirth"
+            label="Country of birth"
+            control={control}
+          />
         </Stack>
-        <Input name="birthdate" label="Birthdate" required />
-        <Input name="nationality" label="Nationality" required />
+        <RHFInput name="birthdate" label="Birthdate" control={control} />
+        <RHFInput name="nationality" label="Nationality" control={control} />
       </Card>
       <Card title="Address Details">
-        <Input name="addressCountry" label="Country" required />
+        <RHFInput name="addressCountry" label="Country" control={control} />
         <Stack direction="row" gap="1rem">
-          <Input name="addressStreet" label="Street" required />
-          <Input name="addressHouseNumber" label="House number" required />
+          <RHFInput name="addressStreet" label="Street" control={control} />
+          <RHFInput
+            name="addressHouseNumber"
+            label="House number"
+            control={control}
+          />
         </Stack>
-        <Input name="addressSupplement" label="Address supplement" required />
+        <RHFInput
+          name="addressSupplement"
+          label="Address supplement"
+          control={control}
+        />
         <Stack direction="row" gap="1rem">
-          <Input name="addressCity" label="City" required />
-          <Input name="adresspostCode" label="Post code" required />
+          <RHFInput name="addressCity" label="City" control={control} />
+          <RHFInput name="adresspostCode" label="Post code" control={control} />
         </Stack>
       </Card>
       <Form.Submit asChild>
