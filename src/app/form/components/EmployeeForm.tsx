@@ -21,9 +21,26 @@ const EmployeeForm = () => {
           <Input name="firstName" label="First name" required />
           <Input name="lastName" label="Last name" required />
         </Stack>
+        <Input name="givenBirthName" label="Given birth name" required />
+        <Input name="socialId" label="Social ID" required />
+        <Stack direction="row" gap="1rem">
+          <Input name="cityOfBirth" label="City of birth" required />
+          <Input name="countryOfBirth" label="Country of birth" required />
+        </Stack>
+        <Input name="birthdate" label="Birthdate" required />
+        <Input name="nationality" label="Nationality" required />
       </Card>
       <Card title="Address Details">
-        <Input name="firstName" label="First name" required />
+        <Input name="addressCountry" label="Country" required />
+        <Stack direction="row" gap="1rem">
+          <Input name="addressStreet" label="Street" required />
+          <Input name="addressHouseNumber" label="House number" required />
+        </Stack>
+        <Input name="addressSupplement" label="Address supplement" required />
+        <Stack direction="row" gap="1rem">
+          <Input name="addressCity" label="City" required />
+          <Input name="adresspostCode" label="Post code" required />
+        </Stack>
       </Card>
       <Form.Submit asChild>
         <button
