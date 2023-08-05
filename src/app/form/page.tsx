@@ -1,6 +1,11 @@
+import EmployeeForm from "@/app/form/components/EmployeeForm";
 
 const FormPage = () => {
-    return (<div>Will be here</div>);
-}
+  return (
+    <>
+      <EmployeeForm />
+    </>
+  );
+};
 
 export default FormPage;
