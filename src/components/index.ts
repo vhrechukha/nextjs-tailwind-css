@@ -1,7 +1,8 @@
 // Will Always be named export
-// export * from "./Card";
+// export * from "./Input";
 
 // Take always default export from import './{name-of-the-component}'
 import Card from "./Card";
+import Input from "./Input";
 
-export { Card };
+export { Card, Input };
