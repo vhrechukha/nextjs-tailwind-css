@@ -1,7 +1,7 @@
 "use client";
 
 import { FunctionComponent, HTMLAttributes, PropsWithChildren } from "react";
-import { TAILWIND_INPUT, TAILWIND_ROUNDED_BORDER } from "@/utils/tailwind";
+import { TAILWIND_INPUT } from "@/utils/tailwind";
 import { Card } from "@/components/Card";
 import { twMerge } from "tailwind-merge";
 import { Stack } from "@/components/Stack";
@@ -24,7 +24,6 @@ const StatusBar: FunctionComponent<
 > = ({ className, children }) => {
   const classToRender = twMerge(
     TAILWIND_INPUT,
-    TAILWIND_ROUNDED_BORDER,
     "h-[35px] flex bg-white w-fit text-sm items-center justify-between gap-20 focus:border-none hover:border-color-none py-5 px-4 rounded-xl",
     className,
   );
