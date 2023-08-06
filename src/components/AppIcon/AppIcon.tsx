@@ -1,17 +1,19 @@
 import { ComponentType, FunctionComponent, SVGAttributes } from "react";
-import { APP_ICON_SIZE } from "../config";
+import { APP_ICON_COLOR, APP_ICON_SIZE } from "../config";
 
 // React Icons
 import { FiLogOut } from "react-icons/fi";
 import { BsCalendar4Event } from "react-icons/bs";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 export const ICONS: Record<string, ComponentType> = {
   // default: DefaultIcon,
   // logo: LogoIcon,
   logout: FiLogOut,
-  arrowDown: RiArrowDownSLine,
+  arrowdown: RiArrowDownSLine,
   calendar: BsCalendar4Event,
+  success: FaRegCheckCircle,
 };
 
 export interface AppIconProps extends SVGAttributes<SVGElement> {
@@ -22,7 +24,7 @@ export interface AppIconProps extends SVGAttributes<SVGElement> {
 }
 
 const AppIcon: FunctionComponent<AppIconProps> = ({
-  color,
+  color: providedColor,
   icon = "default",
   size = APP_ICON_SIZE,
   style,
@@ -35,6 +37,7 @@ const AppIcon: FunctionComponent<AppIconProps> = ({
     console.warn(`AppIcon: icon "${iconName}" is not found!`);
     // ComponentToRender = DefaultIcon;
   }
+  const color = providedColor || APP_ICON_COLOR;
 
   const classToRender = {
     height: size,
