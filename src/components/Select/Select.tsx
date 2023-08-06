@@ -46,7 +46,7 @@ const CustomSelect = forwardRef<HTMLButtonElement, SelectProps>(
     const id = name; // TODO: useId(); - Doesn't work, server htmlFor is not equal to client one
     const classToRender = twMerge(
       TAILWIND_INPUT,
-      TAILWIND_DISABLED_INPUT ?? TAILWIND_DISABLED_INPUT,
+      disabled && TAILWIND_DISABLED_INPUT,
       TAILWIND_ROUNDED_BORDER,
       "box-border inline-flex w-full appearance-none items-center justify-between leading-none outline-none",
       className,

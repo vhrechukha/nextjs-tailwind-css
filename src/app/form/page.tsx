@@ -5,7 +5,7 @@ import FormController from "@/app/form/components/FormController";
 
 const FormPage = () => {
   return (
-    <Stack direction="row" justifyContent="center" gap={5} className="my-10">
+    <Stack direction="row" justifyContent="center" gap={20} className="m-10">
       <Stack direction="column">
         <StatusBar>Immediate registration</StatusBar>
         <Stack direction="column" justifyContent="center" className="my-auto">
@@ -13,6 +13,7 @@ const FormPage = () => {
         </Stack>
       </Stack>
       <FormController />
+      {/* TODO: Add global LanguageContext */}
       {/* Language button */}
     </Stack>
   );

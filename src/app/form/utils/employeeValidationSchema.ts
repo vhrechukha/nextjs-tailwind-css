@@ -3,7 +3,10 @@ import * as yup from "yup";
 // TODO: investigate localization possibilities with "yup"
 const employeeValidationSchema = () =>
   yup.object({
-    contractStartDay: yup.string().min(4).required("Property is required"),
+    contractStartDay: yup
+      .string()
+      .min(4, "Write at least 4 symbols")
+      .required("Property is required"),
     firstDayOfWork: yup.string().required("Property is required"),
     firstName: yup.string().required("Property is required"),
     lastName: yup.string().required("Property is required"),

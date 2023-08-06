@@ -20,7 +20,7 @@ const SelectItem = forwardRef(
       >
         <Select.ItemText>{children}</Select.ItemText>
         <Select.ItemIndicator className="absolute pr-[10px] right-0 inline-flex items-center justify-center">
-          <AppIcon icon="success" />
+          <AppIcon icon="success" className="fill-blue-600" />
         </Select.ItemIndicator>
       </Select.Item>
     );

@@ -80,7 +80,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
           name={"firstDayOfWork"}
           label="First day of work"
           control={control}
-          error={errors?.contractStartDay?.message}
+          error={errors?.firstDayOfWork?.message}
           required
         />
       </Card>
@@ -179,7 +179,6 @@ const EmployeeForm = ({ onComplete }: Props) => {
           label="Address supplement"
           control={control}
           error={errors?.addressSupplement?.message}
-          required
         />
         <Stack direction="row" gap="1rem">
           <RHFSelect

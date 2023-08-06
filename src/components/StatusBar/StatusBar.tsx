@@ -25,7 +25,7 @@ const StatusBar: FunctionComponent<
   const classToRender = twMerge(
     TAILWIND_INPUT,
     TAILWIND_ROUNDED_BORDER,
-    "h-[35px] flex w-fit text-sm items-center justify-between gap-20 focus:border-none hover:border-color-none py-5 px-4 rounded-xl",
+    "h-[35px] flex bg-white w-fit text-sm items-center justify-between gap-20 focus:border-none hover:border-color-none py-5 px-4 rounded-xl",
     className,
   );
 
