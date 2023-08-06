@@ -37,7 +37,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {label && (
             <Form.Label
               htmlFor={id}
-              className="text-sm font-medium whitespace-nowrap"
+              className="text-sm font-medium whitespace-nowrap mb-1"
             >
               {label} {required && <span className="pl-1 text-red-600">*</span>}
             </Form.Label>
