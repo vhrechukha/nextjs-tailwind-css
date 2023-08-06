@@ -10,8 +10,10 @@ const SubmitConfirmation = ({ onButtonClick }: Props) => {
     <Stack>
       <Card>
         <Stack alignItems="center" gap="1rem">
-          <div className="bg-green-100 rounded-full bg-gradient-radial p-10">
-            <AppIcon icon="success" />
+          <div className="bg-green-50 rounded-full bg-gradient-radial p-3.5">
+            <div className="bg-green-200 rounded-full bg-gradient-radial p-3">
+              <AppIcon icon="success" className="fill-green-600" />
+            </div>
           </div>
           <h1 className="text-2xl font-bold">Data is submitted</h1>
           <p className="text-grey-300 px-10">
