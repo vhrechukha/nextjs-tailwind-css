@@ -7,5 +7,6 @@ import Input from "./Input";
 import Stack from "./Stack";
 import Switch from "./Switch";
 import StatusBar from "./StatusBar";
+import LogoutButton from "./LogoutButton";
 
-export { Card, Input, Stack, Switch, StatusBar };
+export { Card, Input, Stack, Switch, StatusBar, LogoutButton };

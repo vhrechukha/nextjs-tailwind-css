@@ -11,7 +11,7 @@ const TAILWIND_CIRCLE_ICON =
 
 const TAILWIND_OUTER_CIRCLE_ICON = [
   TAILWIND_CIRCLE_ICON,
-  "h-3 w-3 bg-blue-300 opacity-50",
+  "h-4 w-4 bg-blue-300 opacity-50",
 ].join(" ");
 
 const TAILWIND_INNER_CIRCLE_ICON = [
@@ -25,7 +25,7 @@ const StatusBar: FunctionComponent<
   const classToRender = twMerge(
     TAILWIND_INPUT,
     TAILWIND_ROUNDED_BORDER,
-    "h-[35px] flex w-fit items-center justify-between gap-20 focus:border-none hover:border-color-none py-2 px-3 rounded-xl",
+    "h-[35px] flex w-fit text-sm items-center justify-between gap-20 focus:border-none hover:border-color-none py-5 px-4 rounded-xl",
     className,
   );
 

@@ -1,6 +1,6 @@
 import { FunctionComponent, HTMLAttributes, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
-import { TAILWIND_CARD_VERTICAL } from "@/utils/tailwind";
+export const TAILWIND_CARD_VERTICAL = "flex flex-col gap-5";
 
 interface Props extends PropsWithChildren<HTMLAttributes<HTMLInputElement>> {
   title?: string;
