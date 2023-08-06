@@ -3,11 +3,7 @@
 import { forwardRef, PropsWithChildren, SelectHTMLAttributes } from "react";
 import * as Form from "@radix-ui/react-form";
 import { twMerge } from "tailwind-merge";
-import {
-  TAILWIND_DISABLED_INPUT,
-  TAILWIND_INPUT,
-  TAILWIND_ROUNDED_BORDER,
-} from "@/utils/tailwind";
+import { TAILWIND_DISABLED_INPUT, TAILWIND_INPUT } from "@/utils/tailwind";
 import * as Select from "@radix-ui/react-select";
 import { AppIcon } from "@/components";
 import SelectItem from "@/components/Select/SelectItem";
@@ -47,7 +43,6 @@ const CustomSelect = forwardRef<HTMLButtonElement, SelectProps>(
     const classToRender = twMerge(
       TAILWIND_INPUT,
       disabled && TAILWIND_DISABLED_INPUT,
-      TAILWIND_ROUNDED_BORDER,
       "box-border inline-flex w-full appearance-none items-center justify-between leading-none outline-none",
       className,
     );
@@ -91,7 +86,6 @@ const CustomSelect = forwardRef<HTMLButtonElement, SelectProps>(
             <Select.Content
               className={twMerge(
                 TAILWIND_INPUT,
-                TAILWIND_ROUNDED_BORDER,
                 "overflow-hidden",
                 "p-0 m-0 w-full",
               )}

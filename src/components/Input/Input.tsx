@@ -3,7 +3,6 @@
 import { forwardRef, InputHTMLAttributes, PropsWithChildren } from "react";
 import * as Form from "@radix-ui/react-form";
 import { twMerge } from "tailwind-merge";
-import { TAILWIND_ROUNDED_BORDER } from "@/utils/tailwind";
 
 const TAILWIND_INPUT =
   "bg-gray-50 border h-[42px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
@@ -36,7 +35,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ) => {
     const id = name; // TODO: useId(); - Doesn't work, server htmlFor is not equal to client one
     const classToRender = twMerge(
-      TAILWIND_ROUNDED_BORDER,
       TAILWIND_INPUT,
       disabled && TAILWIND_DISABLED_INPUT,
       className,
