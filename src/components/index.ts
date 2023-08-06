@@ -5,6 +5,7 @@
 import AppIcon from "./AppIcon";
 import Card from "./Card";
 import Input from "./Input";
+import Select from "./Select";
 import Stack from "./Stack";
 import Switch from "./Switch";
 import StatusBar from "./StatusBar";

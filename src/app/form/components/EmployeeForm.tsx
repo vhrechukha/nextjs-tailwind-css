@@ -7,6 +7,8 @@ import { employeeValidationSchema } from "@/app/form/utils/employeeValidationSch
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import RHFInput from "@/components/Input/RHFInput";
+import { RHFSelect } from "@/components/Select";
+import { mockedOptions } from "@/utils/mocks";
 
 interface Props {
   onComplete: (success: boolean) => void;
@@ -102,13 +104,15 @@ const EmployeeForm = ({ onComplete }: Props) => {
         />
         <RHFInput name="socialId" label="Social ID" control={control} />
         <Stack direction="row" gap="1rem">
-          <RHFInput
+          <RHFSelect
+            options={mockedOptions}
             name="cityOfBirth"
             label="City of birth"
             control={control}
             required
           />
-          <RHFInput
+          <RHFSelect
+            options={mockedOptions}
             name="countryOfBirth"
             label="Country of birth"
             control={control}
@@ -121,7 +125,8 @@ const EmployeeForm = ({ onComplete }: Props) => {
           control={control}
           required
         />
-        <RHFInput
+        <RHFSelect
+          options={mockedOptions}
           name="nationality"
           label="Nationality"
           control={control}
@@ -129,14 +134,16 @@ const EmployeeForm = ({ onComplete }: Props) => {
         />
       </Card>
       <Card title="Address Details">
-        <RHFInput
+        <RHFSelect
+          options={mockedOptions}
           name="addressCountry"
           label="Country"
           control={control}
           required
         />
         <Stack direction="row" gap="1rem">
-          <RHFInput
+          <RHFSelect
+            options={mockedOptions}
             name="addressStreet"
             label="Street"
             control={control}
@@ -149,13 +156,16 @@ const EmployeeForm = ({ onComplete }: Props) => {
             required
           />
         </Stack>
-        <RHFInput
+        <RHFSelect
+          options={mockedOptions}
           name="addressSupplement"
           label="Address supplement"
           control={control}
+          required
         />
         <Stack direction="row" gap="1rem">
-          <RHFInput
+          <RHFSelect
+            options={mockedOptions}
             name="addressCity"
             label="City"
             control={control}
@@ -171,7 +181,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
       </Card>
       <Form.Submit asChild>
         <button
-          disabled={isSubmitted}
+          disabled={!isSubmitted}
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           type="submit"
         >
