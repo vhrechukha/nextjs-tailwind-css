@@ -23,7 +23,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
     watch,
     setValue,
     control,
-    formState: { errors, isSubmitted },
+    formState: { errors },
   } = useForm({
     mode: "onChange",
     resolver: yupResolver(employeeSchema),
@@ -68,6 +68,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
           name="contractStartDay"
           label="Contract start"
           control={control}
+          error={errors?.contractStartDay?.message}
           required
         />
         <Switch
@@ -79,6 +80,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
           name={"firstDayOfWork"}
           label="First day of work"
           control={control}
+          error={errors?.contractStartDay?.message}
           required
         />
       </Card>
@@ -88,27 +90,36 @@ const EmployeeForm = ({ onComplete }: Props) => {
             name="firstName"
             label="First name"
             control={control}
+            error={errors?.firstName?.message}
             required
           />
           <RHFInput
             name="lastName"
             label="Last name"
             control={control}
+            error={errors?.lastName?.message}
             required
           />
         </Stack>
         <RHFInput
           name="givenBirthName"
           label="Given birth name"
+          error={errors?.givenBirthName?.message}
           control={control}
         />
-        <RHFInput name="socialId" label="Social ID" control={control} />
+        <RHFInput
+          name="socialId"
+          label="Social ID"
+          control={control}
+          error={errors?.socialId?.message}
+        />
         <Stack direction="row" gap="1rem">
           <RHFSelect
             options={mockedOptions}
             name="cityOfBirth"
             label="City of birth"
             control={control}
+            error={errors?.cityOfBirth?.message}
             required
           />
           <RHFSelect
@@ -116,6 +127,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
             name="countryOfBirth"
             label="Country of birth"
             control={control}
+            error={errors?.countryOfBirth?.message}
             required
           />
         </Stack>
@@ -123,6 +135,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
           name="birthdate"
           label="Birthdate"
           control={control}
+          error={errors?.birthdate?.message}
           required
         />
         <RHFSelect
@@ -130,6 +143,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
           name="nationality"
           label="Nationality"
           control={control}
+          error={errors?.nationality?.message}
           required
         />
       </Card>
@@ -139,6 +153,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
           name="addressCountry"
           label="Country"
           control={control}
+          error={errors?.addressCountry?.message}
           required
         />
         <Stack direction="row" gap="1rem">
@@ -147,12 +162,14 @@ const EmployeeForm = ({ onComplete }: Props) => {
             name="addressStreet"
             label="Street"
             control={control}
+            error={errors?.addressStreet?.message}
             required
           />
           <RHFInput
             name="addressHouseNumber"
             label="House number"
             control={control}
+            error={errors?.addressHouseNumber?.message}
             required
           />
         </Stack>
@@ -161,6 +178,7 @@ const EmployeeForm = ({ onComplete }: Props) => {
           name="addressSupplement"
           label="Address supplement"
           control={control}
+          error={errors?.addressSupplement?.message}
           required
         />
         <Stack direction="row" gap="1rem">
@@ -169,19 +187,20 @@ const EmployeeForm = ({ onComplete }: Props) => {
             name="addressCity"
             label="City"
             control={control}
+            error={errors?.addressCity?.message}
             required
           />
           <RHFInput
             name="addressPostCode"
             label="Post code"
             control={control}
+            error={errors?.addressPostCode?.message}
             required
           />
         </Stack>
       </Card>
       <Form.Submit asChild>
         <button
-          disabled={!isSubmitted}
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           type="submit"
         >
