@@ -3,6 +3,7 @@
 import { FunctionComponent, HTMLAttributes, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 import { FiLogOut } from "react-icons/fi";
+import AppIcon from "@/components/AppIcon";
 
 const LogoutButton: FunctionComponent<
   PropsWithChildren<HTMLAttributes<HTMLInputElement>>
@@ -14,7 +15,7 @@ const LogoutButton: FunctionComponent<
 
   return (
     <button className={classToRender}>
-      <FiLogOut className="h-[20px]" />
+      <AppIcon icon="logout" className="h-[20px]" color="none" />
       Logout
     </button>
   );
