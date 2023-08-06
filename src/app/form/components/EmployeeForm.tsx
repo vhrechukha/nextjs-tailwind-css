@@ -39,6 +39,7 @@ const EmployeeForm = () => {
           name="contractStartDay"
           label="Contract start"
           control={control}
+          required
         />
         <Switch
           onChange={handleContractStartSame}
@@ -49,12 +50,23 @@ const EmployeeForm = () => {
           name={"firstDayOfWork"}
           label="First day of work"
           control={control}
+          required
         />
       </Card>
       <Card title="Employee Data">
         <Stack direction="row" gap="1rem">
-          <RHFInput name="firstName" label="First name" control={control} />
-          <RHFInput name="lastName" label="Last name" control={control} />
+          <RHFInput
+            name="firstName"
+            label="First name"
+            control={control}
+            required
+          />
+          <RHFInput
+            name="lastName"
+            label="Last name"
+            control={control}
+            required
+          />
         </Stack>
         <RHFInput
           name="givenBirthName"
@@ -67,24 +79,47 @@ const EmployeeForm = () => {
             name="cityOfBirth"
             label="City of birth"
             control={control}
+            required
           />
           <RHFInput
             name="countryOfBirth"
             label="Country of birth"
             control={control}
+            required
           />
         </Stack>
-        <RHFInput name="birthdate" label="Birthdate" control={control} />
-        <RHFInput name="nationality" label="Nationality" control={control} />
+        <RHFInput
+          name="birthdate"
+          label="Birthdate"
+          control={control}
+          required
+        />
+        <RHFInput
+          name="nationality"
+          label="Nationality"
+          control={control}
+          required
+        />
       </Card>
       <Card title="Address Details">
-        <RHFInput name="addressCountry" label="Country" control={control} />
+        <RHFInput
+          name="addressCountry"
+          label="Country"
+          control={control}
+          required
+        />
         <Stack direction="row" gap="1rem">
-          <RHFInput name="addressStreet" label="Street" control={control} />
+          <RHFInput
+            name="addressStreet"
+            label="Street"
+            control={control}
+            required
+          />
           <RHFInput
             name="addressHouseNumber"
             label="House number"
             control={control}
+            required
           />
         </Stack>
         <RHFInput
@@ -93,8 +128,18 @@ const EmployeeForm = () => {
           control={control}
         />
         <Stack direction="row" gap="1rem">
-          <RHFInput name="addressCity" label="City" control={control} />
-          <RHFInput name="adresspostCode" label="Post code" control={control} />
+          <RHFInput
+            name="addressCity"
+            label="City"
+            control={control}
+            required
+          />
+          <RHFInput
+            name="adresspostCode"
+            label="Post code"
+            control={control}
+            required
+          />
         </Stack>
       </Card>
       <Form.Submit asChild>
