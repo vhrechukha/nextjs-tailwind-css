@@ -1,44 +1,21 @@
 "use client";
 
-import { FunctionComponent, HTMLAttributes, PropsWithChildren } from "react";
-import * as Switch from "@radix-ui/react-switch";
+import { FunctionComponent, PropsWithChildren } from "react";
 
-interface Props extends PropsWithChildren<HTMLAttributes<HTMLInputElement>> {
-  name: string;
-  error?: string;
-  label?: string;
-  value?: boolean;
-  required?: boolean;
+interface Props extends PropsWithChildren {
+  label: string;
+  onChange: () => void;
 }
 
-const SwitchControl: FunctionComponent<Props> = ({
-  name,
-  error,
-  label,
-  value,
-  required,
-}) => {
+const SwitchControl: FunctionComponent<Props> = ({ label, onChange }) => {
   return (
-    <Switch.Root
-      name={name}
-      checked={value}
-      className={[
-        "group",
-        "radix-state-checked:bg-blue-600",
-        "radix-state-unchecked:bg-blue-200 dark:radix-state-unchecked:bg-blue-800",
-        "relative inline-flex h-[24px] w-[44px] flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out",
-        "focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-75",
-      ].join(" ")}
-    >
-      <Switch.Thumb
-        // defaultChecked={value}
-        className={[
-          "group-radix-state-checked:translate-x-5",
-          "group-radix-state-unchecked:translate-x-0",
-          "pointer-events-none inline-block h-[20px] w-[20px] transform rounded-full bg-black shadow-lg ring-0 transition duration-200 ease-in-out",
-        ].join(" ")}
-      />
-    </Switch.Root>
+    <label className="relative inline-flex items-center cursor-pointer">
+      <input type="checkbox" className="sr-only peer" onChange={onChange} />
+      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+      <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+        {label}
+      </span>
+    </label>
   );
 };
 

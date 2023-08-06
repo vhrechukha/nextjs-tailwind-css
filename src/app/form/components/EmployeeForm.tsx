@@ -2,7 +2,7 @@
 
 import * as Form from "@radix-ui/react-form";
 import { Card, Stack, Switch } from "@/components";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { employeeValidationSchema } from "@/app/form/utils/employeeValidationSchema";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,7 +11,8 @@ import RHFInput from "../../../components/Input/RHFInput";
 const EmployeeForm = () => {
   const employeeSchema = useMemo(() => employeeValidationSchema(), []);
 
-  const { handleSubmit, control } = useForm({
+  const [contractStartSame, setContractStartSame] = useState<boolean>(false);
+  const { handleSubmit, watch, setValue, control } = useForm({
     mode: "onChange",
     resolver: yupResolver(employeeSchema),
   });
@@ -19,6 +20,17 @@ const EmployeeForm = () => {
   const onSubmit: SubmitHandler<any> = (data) => {
     console.log(data);
   };
+  const handleContractStartSame = () =>
+    setContractStartSame((prevState) => !prevState);
+
+  const contractStartDayValue = watch("contractStartDay");
+  useEffect(() => {
+    if (contractStartSame) {
+      setValue("firstDayOfWork", contractStartDayValue, {
+        shouldValidate: true,
+      });
+    }
+  }, [contractStartSame, watch, setValue, contractStartDayValue]);
 
   return (
     <Form.Root className="w-2/5" onSubmit={handleSubmit(onSubmit)}>
@@ -28,9 +40,13 @@ const EmployeeForm = () => {
           label="Contract start"
           control={control}
         />
-        <Switch name="same" />
+        <Switch
+          onChange={handleContractStartSame}
+          label="Contract start and first day of work differ"
+        />
         <RHFInput
-          name="firstDayOfWork"
+          disabled={contractStartSame}
+          name={"firstDayOfWork"}
           label="First day of work"
           control={control}
         />
