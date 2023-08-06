@@ -1,7 +1,7 @@
-import EmployeeForm from "@/app/form/components/EmployeeForm";
 import { StatusBar } from "@/components/StatusBar";
 import { Stack } from "@/components/Stack";
 import LogoutButton from "@/components/LogoutButton";
+import FormController from "@/app/form/components/FormController";
 
 const FormPage = () => {
   return (
@@ -12,7 +12,7 @@ const FormPage = () => {
           <LogoutButton />
         </Stack>
       </Stack>
-      <EmployeeForm />
+      <FormController />
       {/* Language button */}
     </Stack>
   );

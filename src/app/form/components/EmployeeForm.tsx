@@ -6,20 +6,47 @@ import { useEffect, useMemo, useState } from "react";
 import { employeeValidationSchema } from "@/app/form/utils/employeeValidationSchema";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import RHFInput from "../../../components/Input/RHFInput";
+import RHFInput from "@/components/Input/RHFInput";
 
-const EmployeeForm = () => {
+interface Props {
+  onComplete: (success: boolean) => void;
+}
+
+const EmployeeForm = ({ onComplete }: Props) => {
   const employeeSchema = useMemo(() => employeeValidationSchema(), []);
 
   const [contractStartSame, setContractStartSame] = useState<boolean>(false);
-  const { handleSubmit, watch, setValue, control } = useForm({
+  const {
+    handleSubmit,
+    watch,
+    setValue,
+    control,
+    formState: { errors, isSubmitted },
+  } = useForm({
     mode: "onChange",
     resolver: yupResolver(employeeSchema),
   });
 
-  const onSubmit: SubmitHandler<any> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<any> = async (data) => {
+    try {
+      // TODO: format dates into ISO format
+
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+
+      const json = await response.json();
+
+      console.log("json :", json);
+
+      onComplete(true);
+    } catch (error) {
+      console.error(error);
+      onComplete(false);
+    }
   };
+
   const handleContractStartSame = () =>
     setContractStartSame((prevState) => !prevState);
 
@@ -135,7 +162,7 @@ const EmployeeForm = () => {
             required
           />
           <RHFInput
-            name="adresspostCode"
+            name="addressPostCode"
             label="Post code"
             control={control}
             required
@@ -144,6 +171,7 @@ const EmployeeForm = () => {
       </Card>
       <Form.Submit asChild>
         <button
+          disabled={isSubmitted}
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           type="submit"
         >

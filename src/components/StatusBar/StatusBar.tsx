@@ -7,7 +7,7 @@ import { twMerge } from "tailwind-merge";
 import { Stack } from "@/components/Stack";
 
 const TAILWIND_CIRCLE_ICON =
-  "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform rounded-full ";
+  "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform rounded-full";
 
 const TAILWIND_OUTER_CIRCLE_ICON = [
   TAILWIND_CIRCLE_ICON,
