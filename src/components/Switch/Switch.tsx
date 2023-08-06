@@ -1,3 +1,5 @@
+"use client";
+
 import { FunctionComponent, HTMLAttributes, PropsWithChildren } from "react";
 import * as Switch from "@radix-ui/react-switch";
 

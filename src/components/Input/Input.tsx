@@ -2,6 +2,7 @@
 
 import { forwardRef, HTMLAttributes, PropsWithChildren } from "react";
 import * as Form from "@radix-ui/react-form";
+import { twMerge } from "tailwind-merge";
 
 const TAILWIND_ROUNDED_BORDER =
   "rounded-[4px] border-slate-300 hover:border-blue-600";
@@ -24,9 +25,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     ref,
   ) => {
     const id = name; // TODO: useId(); - Doesn't work, server htmlFor is not equal to client one
-    const classToRender = [TAILWIND_INPUT, TAILWIND_ROUNDED_BORDER, className]
-      .filter(Boolean)
-      .join(" ");
+    const classToRender = twMerge(
+      TAILWIND_INPUT,
+      TAILWIND_ROUNDED_BORDER,
+      className,
+    );
 
     return (
       <Form.Field className="w-full" name={name}>

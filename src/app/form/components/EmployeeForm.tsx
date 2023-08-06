@@ -21,7 +21,7 @@ const EmployeeForm = () => {
   };
 
   return (
-    <Form.Root onSubmit={handleSubmit(onSubmit)}>
+    <Form.Root className="w-2/5" onSubmit={handleSubmit(onSubmit)}>
       <Card title="Company Data">
         <RHFInput
           name="contractStartDay"

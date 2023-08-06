@@ -37,10 +37,8 @@ const Stack: FunctionComponent<Props> = ({
     justifyContent,
     ...style,
   };
-  const classToRender = [className].filter(Boolean).join(" ");
-
   return (
-    <div className={classToRender} style={styleToRender}>
+    <div className={className} style={styleToRender}>
       {children}
     </div>
   );

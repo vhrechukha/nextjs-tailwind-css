@@ -1,6 +1,6 @@
 import { FunctionComponent, HTMLAttributes, PropsWithChildren } from "react";
-
-const TAILWIND_CARD_VERTICAL = "flex flex-col gap-5";
+import { twMerge } from "tailwind-merge";
+import { TAILWIND_CARD_VERTICAL } from "@/utils/tailwind";
 
 interface Props extends PropsWithChildren<HTMLAttributes<HTMLInputElement>> {
   title?: string;
@@ -11,10 +11,10 @@ const Card: FunctionComponent<Props> = ({
   title,
   children,
 }) => {
-  const classToRender = [
-    `mb-5 rounded-xl border border-gray-200 bg-white p-5 shadow-md`,
+  const classToRender = twMerge(
+    "mb-5 rounded-xl border border-gray-200 bg-white p-5 shadow-md",
     className,
-  ].join(" ");
+  );
 
   return (
     <div className={classToRender}>
