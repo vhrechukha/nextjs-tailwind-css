@@ -1,6 +1,7 @@
 import * as yup from "yup";
 
 // TODO: investigate localization possibilities with "yup"
+// TODO: UTC time format for dates
 const employeeValidationSchema = () =>
   yup.object({
     contractStartDay: yup
